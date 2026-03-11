@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import PrestaShopDevelopment from "@/pages/PrestaShopDevelopment";
+import PrestaShopDevelopment from "@/_pages_backup/PrestaShopDevelopment";
 
 export const metadata: Metadata = {
   title: "PrestaShopDevelopment | Globify Corp",

@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import PrivacyPolicy from "@/_pages_backup/PrivacyPolicy";
 
 export const metadata: Metadata = {
   title: "PrivacyPolicy | Globify Corp",

@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import ShopifyBahrain from "@/pages/ShopifyBahrain";
+import ShopifyBahrain from "@/_pages_backup/ShopifyBahrain";
 
 export const metadata: Metadata = {
   title: "ShopifyBahrain | Globify Corp",

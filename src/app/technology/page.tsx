@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import TechnologyPage from "@/pages/TechnologyPage";
+import TechnologyPage from "@/_pages_backup/TechnologyPage";
 
 export const metadata: Metadata = {
   title: "TechnologyPage | Globify Corp",

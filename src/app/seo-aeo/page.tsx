@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import SeoAeo from "@/pages/SeoAeo";
+import SeoAeo from "@/_pages_backup/SeoAeo";
 
 export const metadata: Metadata = {
   title: "SeoAeo | Globify Corp",

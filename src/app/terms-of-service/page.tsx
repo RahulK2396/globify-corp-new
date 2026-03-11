@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import TermsOfService from "@/pages/TermsOfService";
+import TermsOfService from "@/_pages_backup/TermsOfService";
 
 export const metadata: Metadata = {
   title: "TermsOfService | Globify Corp",

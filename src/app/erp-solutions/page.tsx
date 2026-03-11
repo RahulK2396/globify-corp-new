@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import ERPSolutions from "@/pages/ERPSolutions";
+import ERPSolutions from "@/_pages_backup/ERPSolutions";
 
 export const metadata: Metadata = {
   title: "ERPSolutions | Globify Corp",

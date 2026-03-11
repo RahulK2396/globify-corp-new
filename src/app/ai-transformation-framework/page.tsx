@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import AITransformationFramework from "@/pages/AITransformationFramework";
+import AITransformationFramework from "@/_pages_backup/AITransformationFramework";
 
 export const metadata: Metadata = {
   title: "AITransformationFramework | Globify Corp",

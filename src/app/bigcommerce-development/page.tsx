@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import BigCommerceDevelopment from "@/pages/BigCommerceDevelopment";
+import BigCommerceDevelopment from "@/_pages_backup/BigCommerceDevelopment";
 
 export const metadata: Metadata = {
   title: "BigCommerceDevelopment | Globify Corp",

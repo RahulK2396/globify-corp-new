@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import WixEcommerce from "@/pages/WixEcommerce";
+import WixEcommerce from "@/_pages_backup/WixEcommerce";
 
 export const metadata: Metadata = {
   title: "WixEcommerce | Globify Corp",

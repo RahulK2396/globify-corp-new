@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import SocialMediaBrand from "@/pages/SocialMediaBrand";
+import SocialMediaBrand from "@/_pages_backup/SocialMediaBrand";
 
 export const metadata: Metadata = {
   title: "SocialMediaBrand | Globify Corp",

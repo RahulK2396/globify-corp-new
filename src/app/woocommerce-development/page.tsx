@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import WooCommerceDevelopment from "@/pages/WooCommerceDevelopment";
+import WooCommerceDevelopment from "@/_pages_backup/WooCommerceDevelopment";
 
 export const metadata: Metadata = {
   title: "WooCommerceDevelopment | Globify Corp",

@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import ShopifyIndia from "@/pages/ShopifyIndia";
+import ShopifyIndia from "@/_pages_backup/ShopifyIndia";
 
 export const metadata: Metadata = {
   title: "ShopifyIndia | Globify Corp",

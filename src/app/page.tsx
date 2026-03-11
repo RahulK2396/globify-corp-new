@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import Index from "@/pages/Index";
+import Index from "@/_pages_backup/Index";
 
 export const metadata: Metadata = {
   title: "Globify Corp",

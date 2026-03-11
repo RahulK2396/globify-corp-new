@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import SEOContentStrategy from "@/pages/SEOContentStrategy";
+import SEOContentStrategy from "@/_pages_backup/SEOContentStrategy";
 
 export const metadata: Metadata = {
   title: "SEOContentStrategy | Globify Corp",

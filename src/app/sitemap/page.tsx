@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import Sitemap from "@/pages/Sitemap";
+import Sitemap from "@/_pages_backup/Sitemap";
 
 export const metadata: Metadata = {
   title: "Sitemap | Globify Corp",

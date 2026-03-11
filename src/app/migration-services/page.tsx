@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import MigrationServices from "@/pages/MigrationServices";
+import MigrationServices from "@/_pages_backup/MigrationServices";
 
 export const metadata: Metadata = {
   title: "MigrationServices | Globify Corp",

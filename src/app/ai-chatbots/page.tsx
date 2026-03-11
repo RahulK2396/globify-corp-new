@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import AIChatbots from "@/pages/AIChatbots";
+import AIChatbots from "@/_pages_backup/AIChatbots";
 
 export const metadata: Metadata = {
   title: "AIChatbots | Globify Corp",

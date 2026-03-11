@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import IndustryManufacturing from "@/pages/IndustryManufacturing";
+import IndustryManufacturing from "@/_pages_backup/IndustryManufacturing";
 
 export const metadata: Metadata = {
   title: "IndustryManufacturing | Globify Corp",
