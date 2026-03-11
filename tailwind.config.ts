@@ -8,6 +8,7 @@ export default {
     "./src/components/**/*.{ts,tsx}",
     "./src/pages/**/*.{ts,tsx}",
     "./src/lib/**/*.{ts,tsx}",
+	"./src/_pages_backup/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
