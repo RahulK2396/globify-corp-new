@@ -8,8 +8,10 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { blogPosts, blogCategories, type BlogCategory } from "@/data/blogData";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
-
-const Blog = () => {
+ interface BlogProps {
+    slug: string;
+ }
+const Blog = ({ slug }: BlogProps) => {
   const [activeCategory, setActiveCategory] = useState<BlogCategory | "All">("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(9);
