@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { TrendingDown, Users, Zap, Shield, BarChart3, Trophy } from "lucide-react";
 

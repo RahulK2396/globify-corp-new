@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { DollarSign, Package, Users, ShoppingCart, Factory, BarChart3, Link2 } from "lucide-react";
 

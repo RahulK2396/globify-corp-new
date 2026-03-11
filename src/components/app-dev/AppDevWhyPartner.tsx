@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Rocket, Layers, TrendingUp, DollarSign, Settings, MessageSquare } from "lucide-react";
 

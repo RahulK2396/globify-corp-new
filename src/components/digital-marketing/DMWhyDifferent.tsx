@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Cpu, Handshake, RefreshCw, MessageSquare, Layers } from "lucide-react";
 

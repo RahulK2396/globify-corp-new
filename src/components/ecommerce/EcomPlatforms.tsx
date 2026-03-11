@@ -1,5 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ShoppingCart, Zap, Package, Globe, Layers, Plug, Code2, Store, Box, LayoutGrid, ArrowRightLeft } from "lucide-react";
 import { getTechHref } from "@/lib/techLinks";
 
@@ -40,7 +41,7 @@ const EcomPlatforms = () => (
             </motion.div>
           );
           return href ? (
-            <Link key={p.name} to={href} className="block">
+            <Link key={p.name} href={href} className="block">
               {card}
             </Link>
           ) : (

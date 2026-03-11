@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Workflow, AppWindow, BarChart3, FileText, Settings, Code2, Link2 } from "lucide-react";
 

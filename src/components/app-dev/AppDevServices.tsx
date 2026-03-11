@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Smartphone, Globe, Cloud, Building2, Store, RefreshCw, Plug, ArrowRight } from "lucide-react";
 

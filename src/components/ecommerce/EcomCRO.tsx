@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { MousePointer, ShoppingCart, Gauge, Users, TestTube, Heart, ArrowRight } from "lucide-react";
 

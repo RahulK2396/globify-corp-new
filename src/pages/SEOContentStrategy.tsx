@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CrossLinkSection from "@/components/CrossLinkSection";
@@ -403,7 +404,7 @@ const SEOContentStrategy = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2">
-                <Link to="/digital-marketing">Explore Digital Marketing <ArrowRight className="w-4 h-4" /></Link>
+                <Link href="/digital-marketing">Explore Digital Marketing <ArrowRight className="w-4 h-4" /></Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8 gap-2">
                 <a href="https://seo.globify.ae/" target="_blank" rel="noopener noreferrer">Free SEO Audit <ExternalLink className="w-4 h-4" /></a>

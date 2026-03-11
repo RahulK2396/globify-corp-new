@@ -1,7 +1,9 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Package, TrendingUp, Layers, BarChart3, CheckCircle2, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
+import Image from "next/image";
 
 const features = [
   { icon: Package, title: "Inventory & Warehouse", desc: "Real-time stock visibility, multi-warehouse management, and automated reorder points." },
@@ -18,7 +20,7 @@ const ERPEkasys = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden lg:order-1 order-2">
-            <img src={portfolioErp} alt="EKASYS Enterprise Resource Planning" className="w-full h-[380px] object-cover rounded-2xl" />
+            <Image src={portfolioErp} alt="EKASYS Enterprise Resource Planning" className="w-full h-[380px] object-cover rounded-2xl" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-2xl" />
           </motion.div>
 
@@ -40,10 +42,10 @@ const ERPEkasys = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <Link to="/products" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
+              <Link href="/products" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
                 Request Demo <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/products" className="text-sm text-muted hover:text-primary transition-colors font-medium">
+              <Link href="/products" className="text-sm text-muted hover:text-primary transition-colors font-medium">
                 Learn More →
               </Link>
             </div>

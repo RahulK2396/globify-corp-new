@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, FileSearch, Target, CalendarCheck, BarChart3, Link2, Zap } from "lucide-react";
 

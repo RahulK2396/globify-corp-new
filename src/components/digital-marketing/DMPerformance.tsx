@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Target, Users, ShoppingCart, Video, RefreshCw, TrendingUp, ArrowRight } from "lucide-react";
 

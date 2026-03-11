@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const services = [
   {
@@ -52,7 +53,7 @@ const AIAutomationSection = () => {
                 reduce costs, and unlock new revenue opportunities.
               </p>
               <div>
-                <Link to="/ai-automation">
+                <Link href="/ai-automation">
                   <motion.span
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -75,7 +76,7 @@ const AIAutomationSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
                 >
-                  <Link to={service.link} className="group border-t border-white/20 py-6 block cursor-pointer">
+                  <Link href={service.link} className="group border-t border-white/20 py-6 block cursor-pointer">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
                         <h3 className="text-white font-bold text-lg mb-2 group-hover:text-primary transition-colors">{service.title}</h3>

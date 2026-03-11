@@ -1,4 +1,6 @@
-import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { useParams, useRouter, redirect } from "next/navigation";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, ArrowRight, User } from "lucide-react";
@@ -10,8 +12,9 @@ import { useEffect, useCallback } from "react";
 
 const BlogPost = () => {
   const { openContactDialog } = useContactDialog();
-  const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
+  const params = useParams<{ slug: string }>();
+  const slug = params?.slug;
+  const router = useRouter();
   const post = blogPosts.find((p) => p.slug === slug);
 
   // Handle clicks on internal links rendered via dangerouslySetInnerHTML for SPA navigation
@@ -20,9 +23,9 @@ const BlogPost = () => {
     const anchor = target.closest('a[data-internal]') as HTMLAnchorElement | null;
     if (anchor) {
       e.preventDefault();
-      navigate(anchor.getAttribute('href') || '/');
+      router.push(anchor.getAttribute('href') || '/');
     }
-  }, [navigate]);
+  }, [router]);
 
   useEffect(() => {
     const container = document.getElementById('blog-content');
@@ -32,7 +35,9 @@ const BlogPost = () => {
     }
   }, [handleContentClick, slug]);
 
-  if (!post) return <Navigate to="/blog" replace />;
+  if (!post) {
+    redirect("/blog");
+  }
 
   const relatedPosts = blogPosts
     .filter((p) => p.category === post.category && p.id !== post.id)
@@ -136,7 +141,6 @@ const BlogPost = () => {
           </p>
         );
       } else if (line.startsWith("- ")) {
-        // Collect list items
         const items: string[] = [];
         let j = i;
         while (j < lines.length && lines[j].startsWith("- ")) {
@@ -203,7 +207,7 @@ const BlogPost = () => {
             className="max-w-3xl mx-auto"
           >
             <Link
-              to="/blog"
+              href="/blog"
               className="inline-flex items-center gap-2 text-sm text-hero-foreground/50 hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Blog
@@ -244,7 +248,7 @@ const BlogPost = () => {
                   {post.internalLinks.map((link) => (
                     <Link
                       key={link.href}
-                      to={link.href}
+                      href={link.href}
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
                     >
                       {link.label}
@@ -298,7 +302,7 @@ const BlogPost = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {relatedPosts.map((rp) => (
-                <Link key={rp.id} to={`/blog/${rp.slug}`} className="group">
+                <Link key={rp.id} href={`/blog/${rp.slug}`} className="group">
                   <div className="p-6 rounded-2xl border border-section-dark-foreground/[0.06] hover:border-primary/20 transition-all">
                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-3">
                       {rp.category}

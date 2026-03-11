@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Palette, MousePointer, BarChart3, Users, DollarSign, TrendingUp, ArrowRight } from "lucide-react";
 

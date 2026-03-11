@@ -1,3 +1,4 @@
+"use client";
 const particles = [
   { x1: 5, y1: 20, x2: 45, y2: 60, x3: 85, y3: 30, dur: 18, delay: 0, size: 3, opacity: 0.6 },
   { x1: 90, y1: 10, x2: 50, y2: 50, x3: 10, y3: 80, dur: 22, delay: 2, size: 2.5, opacity: 0.5 },

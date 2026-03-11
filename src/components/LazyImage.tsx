@@ -1,12 +1,18 @@
-import { useState, useRef, useEffect, ImgHTMLAttributes } from "react";
+"use client";
+import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
-interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface LazyImageProps {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
   placeholderColor?: string;
+  fill?: boolean;
 }
 
-const LazyImage = ({ src, alt, className, placeholderColor = "bg-muted", ...props }: LazyImageProps) => {
+const LazyImage = ({ src, alt, className, placeholderColor = "bg-muted", fill, width, height }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -30,14 +36,16 @@ const LazyImage = ({ src, alt, className, placeholderColor = "bg-muted", ...prop
     <div ref={imgRef} className={`relative overflow-hidden ${className || ""}`}>
       {!isLoaded && <div className={`absolute inset-0 ${placeholderColor} animate-pulse`} />}
       {isInView && (
-        <img
+        <Image
           src={src}
           alt={alt}
           loading="lazy"
           decoding="async"
           onLoad={() => setIsLoaded(true)}
           className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-          {...props}
+          fill={fill}
+          width={!fill ? (width ?? 800) : undefined}
+          height={!fill ? (height ?? 600) : undefined}
         />
       )}
     </div>

@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import CrossLinkSection from "@/components/CrossLinkSection";
 import { motion } from "framer-motion";

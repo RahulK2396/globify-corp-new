@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -17,13 +18,13 @@ const CaseStudyBreadcrumb = ({ name }: CaseStudyBreadcrumbProps) => (
     <BreadcrumbList>
       <BreadcrumbItem>
         <BreadcrumbLink asChild>
-          <Link to="/" className="text-white/40 hover:text-primary">Home</Link>
+          <Link href="/" className="text-white/40 hover:text-primary">Home</Link>
         </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator className="text-white/20" />
       <BreadcrumbItem>
         <BreadcrumbLink asChild>
-          <Link to="/projects" className="text-white/40 hover:text-primary">Projects</Link>
+          <Link href="/projects" className="text-white/40 hover:text-primary">Projects</Link>
         </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator className="text-white/20" />

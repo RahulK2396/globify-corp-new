@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { ContactDialogProvider } from "@/contexts/ContactDialogContext";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// react-router-dom removed - Next.js handles routing
 import { ScrollToTop } from "./components/ScrollToTop";
 
 // Lazy load all pages for code splitting

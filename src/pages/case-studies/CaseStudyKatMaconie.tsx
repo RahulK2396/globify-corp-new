@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -8,6 +9,7 @@ import CaseStudyBreadcrumb from "@/components/CaseStudyBreadcrumb";
 import RelatedCaseStudies from "@/components/RelatedCaseStudies";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import portfolioKat from "@/assets/portfolio-kat-maconie.jpeg";
+import Image from "next/image";
 
 const techStack = ["Shopify", "Custom Liquid Theme", "Technical SEO", "Schema Markup", "Core Web Vitals", "Content Strategy", "Responsive Design"];
 
@@ -29,7 +31,7 @@ const CaseStudyKatMaconie = () => {
       <section className="pt-28 pb-16 bg-[#0a0a1a] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="container mx-auto px-6 relative">
-          <Link to="/projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"><ArrowLeft className="w-4 h-4" /> Back to Projects</Link>
+          <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"><ArrowLeft className="w-4 h-4" /> Back to Projects</Link>
           <CaseStudyBreadcrumb name="Kat Maconie" />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
@@ -43,7 +45,7 @@ const CaseStudyKatMaconie = () => {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="rounded-2xl overflow-hidden">
-              <img src={portfolioKat} alt="Kat Maconie luxury footwear e-commerce" className="w-full h-[350px] object-cover rounded-2xl" />
+              <Image src={portfolioKat} alt="Kat Maconie luxury footwear e-commerce" className="w-full h-[350px] object-cover rounded-2xl" />
             </motion.div>
           </div>
         </div>

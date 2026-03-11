@@ -1,7 +1,9 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Activity, Users, FileText, Shield, CheckCircle2, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import portfolioHealthcare from "@/assets/portfolio-healthcare.jpg";
+import Image from "next/image";
 
 const features = [
   { icon: Activity, title: "Patient Lifecycle Management", desc: "End-to-end tracking from admission to discharge with real-time status updates." },
@@ -35,17 +37,17 @@ const ERPMedoc = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <Link to="/products" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
+              <Link href="/products" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
                 Request Demo <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/products" className="text-sm text-hero-foreground/50 hover:text-primary transition-colors font-medium">
+              <Link href="/products" className="text-sm text-hero-foreground/50 hover:text-primary transition-colors font-medium">
                 Learn More →
               </Link>
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden">
-            <img src={portfolioHealthcare} alt="MEDOC Hospital Management System" className="w-full h-[380px] object-cover rounded-2xl" />
+            <Image src={portfolioHealthcare} alt="MEDOC Hospital Management System" className="w-full h-[380px] object-cover rounded-2xl" />
             <div className="absolute inset-0 bg-gradient-to-t from-hero/40 to-transparent rounded-2xl" />
           </motion.div>
         </div>

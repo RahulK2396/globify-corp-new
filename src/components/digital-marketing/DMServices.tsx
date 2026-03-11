@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Target, Search, Share2, Megaphone, MousePointer, BarChart3, FileText, ArrowRight } from "lucide-react";
 

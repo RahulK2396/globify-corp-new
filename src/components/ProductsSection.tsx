@@ -1,7 +1,8 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Activity, BarChart3, Users, Shield, Layers, Package, TrendingUp, FileText, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 
 const products = [
@@ -137,7 +138,7 @@ const ProductsSection = () => {
                       <ArrowRight className="w-4 h-4" />
                     </motion.span>
                   </button>
-                  <Link to="/products" className="text-sm text-white/40 hover:text-white transition-colors">
+                  <Link href="/products" className="text-sm text-white/40 hover:text-white transition-colors">
                     Learn more →
                   </Link>
                 </div>

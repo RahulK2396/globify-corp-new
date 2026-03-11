@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { DollarSign, Layers, BarChart3, Eye, RefreshCw, TrendingUp } from "lucide-react";
 

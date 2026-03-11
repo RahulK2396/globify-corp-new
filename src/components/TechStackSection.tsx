@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const categories = [
   {
@@ -126,7 +127,7 @@ const TechStackSection = () => {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
           >
             {active.techs.map((tech, i) => (
-              <Link key={tech.name} to={`/technology/${tech.slug}`}>
+              <Link key={tech.name} href={`/technology/${tech.slug}`}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}

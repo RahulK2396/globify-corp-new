@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Globe, ShoppingCart, Package, BarChart3, Megaphone, Truck, ArrowRight } from "lucide-react";
 

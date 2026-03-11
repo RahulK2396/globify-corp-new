@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Target, Search, RefreshCw, BarChart3, DollarSign } from "lucide-react";
 

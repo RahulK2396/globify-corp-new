@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { ShoppingCart, Heart, Factory, Wifi, Store, Rocket, GraduationCap, Building2 } from "lucide-react";
 

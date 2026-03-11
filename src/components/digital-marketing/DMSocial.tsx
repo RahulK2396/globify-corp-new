@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { PenTool, MessageCircle, Users, Megaphone, Star, Smartphone } from "lucide-react";
 

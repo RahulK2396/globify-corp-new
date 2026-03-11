@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { BarChart3, GitBranch, Users, Target, Eye } from "lucide-react";
 

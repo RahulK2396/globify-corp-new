@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Shirt, Gem, Dumbbell, Monitor, Stethoscope, Package, Store } from "lucide-react";
 

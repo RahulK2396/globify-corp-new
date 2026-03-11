@@ -1,4 +1,6 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { useParams, redirect } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -15,11 +17,12 @@ import {
 } from "@/components/ui/accordion";
 
 const TechnologyPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const params = useParams<{ slug: string }>();
+  const slug = params?.slug || "";
   const { openContactDialog } = useContactDialog();
-  const tech = getTechnology(slug || "");
+  const tech = getTechnology(slug);
 
-  if (!tech) return <Navigate to="/404" replace />;
+  if (!tech) redirect("/404");
 
   const related = getRelatedTechnologies(tech.relatedTechs);
 
@@ -41,7 +44,7 @@ const TechnologyPage = () => {
         <div className="container mx-auto px-5 sm:px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
             <div className="flex items-center gap-2 text-sm text-white/40 mb-6">
-              <Link to="/" className="hover:text-white/60 transition-colors">Home</Link>
+              <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
               <span>Technology</span>
               <ChevronRight className="w-3 h-3" />
@@ -58,7 +61,7 @@ const TechnologyPage = () => {
               <button onClick={openContactDialog} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-all">
                 Get a Free Consultation <ArrowRight className="w-5 h-5" />
               </button>
-              <Link to="/services" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full font-medium hover:border-white/50 transition-colors">
+              <Link href="/services" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full font-medium hover:border-white/50 transition-colors">
                 Explore All Services <ChevronRight className="w-5 h-5" />
               </Link>
             </div>
@@ -210,7 +213,7 @@ const TechnologyPage = () => {
             </motion.div>
             <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
               {related.map((r) => (
-                <Link key={r.slug} to={`/technology/${r.slug}`}
+                <Link key={r.slug} href={`/technology/${r.slug}`}
                   className="group p-5 rounded-2xl border border-border bg-card hover:border-primary/40 transition-all text-center">
                   <h3 className="font-semibold group-hover:text-primary transition-colors mb-1">{r.name}</h3>
                   <p className="text-xs text-muted-foreground">{r.category}</p>

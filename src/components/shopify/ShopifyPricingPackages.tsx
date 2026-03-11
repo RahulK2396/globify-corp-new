@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Crown } from "lucide-react";
 import { useContactDialog } from "@/contexts/ContactDialogContext";

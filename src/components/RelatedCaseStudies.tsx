@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -10,6 +11,7 @@ import portfolioErp from "@/assets/portfolio-erp.jpg";
 import portfolioJudith from "@/assets/portfolio-judith-leiber.jpeg";
 import portfolioInstaRunway from "@/assets/portfolio-instarunway.jpeg";
 import clientSalomon from "@/assets/clients/salomon.png";
+import Image from "next/image";
 
 const allCaseStudies = [
   { slug: "wilson", title: "Wilson", category: "E-Commerce", image: portfolioWilson, stat: "500K+ Users" },
@@ -37,7 +39,7 @@ const RelatedCaseStudies = ({ current }: RelatedCaseStudiesProps) => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 font-display">Related Case Studies</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {related.map((study, i) => (
-              <Link key={study.slug} to={`/case-study/${study.slug}`} className="block group">
+              <Link key={study.slug} href={`/case-study/${study.slug}`} className="block group">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +48,7 @@ const RelatedCaseStudies = ({ current }: RelatedCaseStudiesProps) => {
                   className="rounded-2xl overflow-hidden border border-white/10 hover:border-primary/30 transition-all duration-300 bg-white/[0.03]"
                 >
                   <div className="aspect-[16/10] overflow-hidden">
-                    <img src={study.image} alt={study.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={study.image} alt={study.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-5">
                     <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary/70 mb-1">{study.category}</p>

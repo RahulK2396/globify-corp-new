@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Send, Workflow, Cog, FileCheck, RefreshCw, Zap, BarChart3 } from "lucide-react";

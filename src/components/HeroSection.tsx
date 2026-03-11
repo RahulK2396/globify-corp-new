@@ -1,16 +1,18 @@
-import { useRef, useEffect, useState, useCallback, lazy, Suspense } from "react";
+"use client";
+import { useRef, useEffect, useState, useCallback, Suspense } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import NebulaLayer from "./hero-globe/NebulaLayer";
 import HUDGridLayer from "./hero-globe/HUDGridLayer";
 
-const StarfieldLayer = lazy(() => import("./hero-globe/StarfieldLayer"));
-const ParticleTrails = lazy(() => import("./hero-globe/ParticleTrails"));
-
-const GlobeScene = lazy(() => import("./hero-globe/GlobeScene"));
+const StarfieldLayer = dynamic(() => import("./hero-globe/StarfieldLayer"), { ssr: false });
+const ParticleTrails = dynamic(() => import("./hero-globe/ParticleTrails"), { ssr: false });
+const GlobeScene = dynamic(() => import("./hero-globe/GlobeScene"), { ssr: false });
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -53,12 +55,16 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
       });
     };
 
-    const onUp = (e: PointerEvent) => {
-      draggingRef.current = false;
-      if (moonRef.current) {
-        try { moonRef.current.releasePointerCapture(e.pointerId); } catch {}
-      }
-    };
+   const onUp = (e: PointerEvent) => {
+  draggingRef.current = false;
+  if (moonRef.current) {
+    try {
+      moonRef.current.releasePointerCapture(e.pointerId);
+    } catch (_e) {
+      // releasePointerCapture may fail if pointer was already released
+    }
+  }
+};
 
     window.addEventListener('pointermove', onMove, { passive: false });
     window.addEventListener('pointerup', onUp);
@@ -94,9 +100,11 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
       }}
       onPointerDown={onPointerDown}
     >
-      <img
+      <Image
         src="/textures/moon-clean.png"
         alt=""
+        width={500}
+        height={500}
         draggable={false}
         className="w-full h-full object-cover"
         style={{
@@ -151,7 +159,7 @@ const HeroSection = () => {
     mouseTarget.current = { x: 0, y: 0 };
   }, []);
 
-  // rAF parallax loop
+   // rAF parallax loop
   useEffect(() => {
     if (prefersReducedMotion || isMobile) return;
     const tick = () => {
@@ -176,50 +184,46 @@ const HeroSection = () => {
   const contentOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const smoothContentY = useSpring(contentY, { stiffness: 60, damping: 25 });
 
-  // Headline words for stagger animation
   const line1Words = "Transform. Automate.".split(" ");
   const line2Words = "Scale Without Limits.".split(" ");
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[85vh] min-h-[85dvh] md:min-h-[100vh] md:min-h-[100dvh] flex flex-col justify-center overflow-hidden"
+      className="relative min-h-[85vh]  md:min-h-[100vh] flex flex-col justify-center overflow-hidden"
       style={{ background: "hsl(var(--hero-bg))" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* ── Layer 1: Starfield (skip on mobile) ── */}
+      {/* Layer 1: Starfield */}
       {!isMobile && (
         <div ref={starfieldRef} className="absolute inset-0 will-change-transform z-[5]">
-          {!prefersReducedMotion && <Suspense fallback={null}><StarfieldLayer /></Suspense>}
+          {!prefersReducedMotion && <StarfieldLayer />}
         </div>
       )}
 
-      {/* ── Layer 2: Nebula ── */}
+      {/* Layer 2: Nebula */}
       <div ref={nebulaRef} className="absolute inset-0 will-change-transform">
         <NebulaLayer />
       </div>
 
-      {/* ── Layer 2.5: Particle Trails (skip on mobile) ── */}
+      {/* Layer 2.5: Particle Trails */}
       {!isMobile && (
         <div className="absolute inset-0 z-[1]">
-          {!prefersReducedMotion && <Suspense fallback={null}><ParticleTrails /></Suspense>}
+          {!prefersReducedMotion && <ParticleTrails />}
         </div>
       )}
 
-      {/* ── Layer 3: HUD grid ── */}
+      {/* Layer 3: HUD grid */}
       <div ref={hudRef} className="absolute inset-0 will-change-transform">
         {!prefersReducedMotion && <HUDGridLayer />}
       </div>
 
-      {/* ── Moon, draggable, top right ── */}
+      {/* Moon */}
       <DraggableMoon isMobile={isMobile} />
 
-      {/* ── Globe, large, centered background element ── */}
+      {/* Globe */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 2 }}>
-        {/* Removed external glow div to prevent smudge */}
-
-        {/* Horizontal lens flare */}
         <motion.div
           className="absolute w-full h-[2px]"
           style={{
@@ -230,7 +234,6 @@ const HeroSection = () => {
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ delay: 0.8, duration: 1.2, ease: easeOut }}
         />
-        {/* Wider soft flare */}
         <motion.div
           className="absolute w-full h-[20px]"
           style={{
@@ -241,7 +244,6 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0, duration: 1.0 }}
         />
-
         <div
           ref={globeWrapRef}
           className="relative will-change-transform pointer-events-auto"
@@ -252,18 +254,16 @@ const HeroSection = () => {
             maxHeight: "780px",
           }}
         >
-          <Suspense fallback={null}>
-            <GlobeScene mouseTarget={mouseTarget} isMobile={isMobile} />
-          </Suspense>
+          <GlobeScene mouseTarget={mouseTarget} isMobile={isMobile} />
         </div>
       </div>
 
-      {/* ── Gradient overlays for text readability ── */}
+      {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--hero-bg)/0.9)] via-[hsl(var(--hero-bg)/0.5)] md:via-[hsl(var(--hero-bg)/0.2)] to-[hsl(var(--hero-bg)/0.3)] md:to-transparent pointer-events-none z-[3]" />
       <div className="absolute bottom-0 left-0 right-0 h-[25%] bg-gradient-to-t from-[hsl(var(--hero-bg))] to-transparent pointer-events-none z-[4]" />
       <div className="absolute top-0 left-0 right-0 h-[15%] bg-gradient-to-b from-[hsl(var(--hero-bg)/0.4)] to-transparent pointer-events-none z-[4]" />
 
-      {/* ── Content ── */}
+      {/* Content */}
       <motion.div
         className="relative z-10 container mx-auto px-5 sm:px-8 pt-20 sm:pt-28 md:pt-36 pb-10 sm:pb-16 md:pb-20 flex-1 flex items-center pointer-events-none"
         style={{
@@ -272,7 +272,6 @@ const HeroSection = () => {
         }}
       >
         <div className="max-w-3xl pointer-events-auto">
-          {/* Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -285,9 +284,7 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          {/* Headline, word-by-word stagger */}
           <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-hero-foreground leading-[1.08] tracking-[-0.03em]">
-            {/* Line 1: "Transform. Automate.", white */}
             <span className="block">
               {line1Words.map((word, i) => (
                 <motion.span
@@ -295,18 +292,12 @@ const HeroSection = () => {
                   className="inline-block mr-[0.25em]"
                   initial={{ opacity: 0, y: 50, rotateX: -30 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{
-                    delay: 0.1 + i * 0.07,
-                    duration: 0.6,
-                    ease: easeOut,
-                  }}
+                  transition={{ delay: 0.1 + i * 0.07, duration: 0.6, ease: easeOut }}
                 >
                   {word}
                 </motion.span>
               ))}
             </span>
-
-            {/* Line 2: "Scale Without Limits.", orange gradient */}
             <span className="block mt-2">
               {line2Words.map((word, i) => (
                 <motion.span
@@ -314,11 +305,7 @@ const HeroSection = () => {
                   className="inline-block mr-[0.25em] text-shimmer"
                   initial={{ opacity: 0, y: 50, rotateX: -30 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{
-                    delay: 0.25 + i * 0.07,
-                    duration: 0.6,
-                    ease: easeOut,
-                  }}
+                  transition={{ delay: 0.25 + i * 0.07, duration: 0.6, ease: easeOut }}
                 >
                   {word}
                 </motion.span>
@@ -326,7 +313,6 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -337,7 +323,6 @@ const HeroSection = () => {
             and revenue growth platforms for enterprises ready to lead, not follow.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -354,7 +339,7 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </motion.span>
             </button>
-            <Link to="/digital-transformation" className="w-full sm:w-auto group">
+            <Link href="/digital-transformation" className="w-full sm:w-auto group">
               <motion.span
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}

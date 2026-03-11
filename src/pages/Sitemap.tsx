@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -339,7 +340,7 @@ const SitemapLinkList = ({ links }: { links: SitemapLink[] }) => (
     {links.map((link) => (
       <li key={link.href}>
         <Link
-          to={link.href}
+          href={link.href}
           className="text-sm text-muted-foreground hover:text-primary transition-colors"
         >
           {link.label}

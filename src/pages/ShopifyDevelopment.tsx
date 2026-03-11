@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -22,6 +23,7 @@ import {
 import { toast } from "sonner";
 import shopifyLogo from "@/assets/shopify-logo.png";
 import ShopifyPricingPackages from "@/components/shopify/ShopifyPricingPackages";
+import Image from "next/image";
 
 /* ───────── inline lead form ───────── */
 const InlineLeadForm = ({ id, variant = "dark" }: { id: string; variant?: "dark" | "light" }) => {
@@ -138,7 +140,7 @@ const ShopifyDevelopment = () => {
             <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6">
               {/* badge */}
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white border border-border/20 rounded-full px-4 py-1.5 text-xs font-medium text-foreground shadow-sm">
-                <img src={shopifyLogo} alt="Shopify Partner" className="h-4 w-auto" />
+                <Image src={shopifyLogo} alt="Shopify Partner" className="h-4 w-auto" />
                 Official Shopify Partner
               </motion.div>
 
@@ -337,7 +339,7 @@ const ShopifyDevelopment = () => {
                 <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted leading-relaxed mb-3">{s.desc}</p>
                 {s.link ? (
-                  <Link to={s.link} className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <Link href={s.link} className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
                     Learn More <ChevronRight className="w-3 h-3" />
                   </Link>
                 ) : null}

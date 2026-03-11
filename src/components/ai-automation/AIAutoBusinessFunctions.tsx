@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Users, DollarSign, Target, Package, Headphones } from "lucide-react";
 

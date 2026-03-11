@@ -1,6 +1,8 @@
+"use client";
 import { Mail, Phone, MapPin, ShieldCheck, Award, BadgeCheck, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import globifyLogo from "@/assets/globify-logo.png";
+import Image from "next/image";
 
 const offices = [
   {
@@ -72,7 +74,7 @@ const Footer = () => {
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-6">
               <div className="bg-white rounded-md px-3 py-1.5 inline-block">
-                <img src={globifyLogo} alt="Globify - Design · Build · Scale" className="h-7 w-auto" width={120} height={28} />
+                <Image src={globifyLogo} alt="Globify - Design · Build · Scale" className="h-7 w-auto" width={120} height={28} />
               </div>
             </div>
             <p className="text-sm text-section-dark-foreground/50 leading-relaxed mb-6">
@@ -112,7 +114,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s.label}>
-                  <Link to={s.href} className="text-sm text-section-dark-foreground/50 hover:text-primary transition-colors">
+                  <Link href={s.href} className="text-sm text-section-dark-foreground/50 hover:text-primary transition-colors">
                     {s.label}
                   </Link>
                 </li>
@@ -126,7 +128,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {company.map((c) => (
                 <li key={c.label}>
-                  <Link to={c.href} className="text-sm text-section-dark-foreground/50 hover:text-primary transition-colors">
+                  <Link href={c.href} className="text-sm text-section-dark-foreground/50 hover:text-primary transition-colors">
                     {c.label}
                   </Link>
                 </li>
@@ -155,8 +157,8 @@ const Footer = () => {
             © 2026 Globify. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/privacy-policy" className="text-sm text-section-dark-foreground/30 hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="text-sm text-section-dark-foreground/30 hover:text-primary transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="text-sm text-section-dark-foreground/30 hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-sm text-section-dark-foreground/30 hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

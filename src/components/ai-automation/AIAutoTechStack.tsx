@@ -1,5 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { getTechHref } from "@/lib/techLinks";
 
 const categories = [
@@ -35,7 +36,7 @@ const TechTag = ({ tech }: { tech: string }) => {
 
   if (href) {
     return (
-      <Link to={href} className={`${base} hover:border-primary/40 hover:text-primary`}>
+      <Link href={href} className={`${base} hover:border-primary/40 hover:text-primary`}>
         {tech}
       </Link>
     );

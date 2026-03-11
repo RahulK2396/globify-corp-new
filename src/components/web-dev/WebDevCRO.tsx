@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { TrendingUp, Timer, MousePointer, BarChart3, ShoppingCart, Gauge, ArrowRight } from "lucide-react";
 

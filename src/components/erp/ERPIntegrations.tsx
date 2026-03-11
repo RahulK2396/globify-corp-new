@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Link2, CreditCard, Truck, BarChart3, MessageSquare, ShoppingCart } from "lucide-react";
 

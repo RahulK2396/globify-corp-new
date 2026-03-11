@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Send, Code2, Plug, BarChart3, Package, RefreshCw, Shield, Workflow, Cpu } from "lucide-react";

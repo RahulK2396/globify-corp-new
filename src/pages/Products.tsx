@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -8,11 +9,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import CrossLinkSection from "@/components/CrossLinkSection";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 
 import portfolioHealthcare from "@/assets/portfolio-healthcare.jpg";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
+import Image from "next/image";
 
 const products = [
   {
@@ -214,7 +216,7 @@ const ProductsPage = () => {
 
                 {/* Right — Image */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/10">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
                     className="w-full h-[400px] object-cover"

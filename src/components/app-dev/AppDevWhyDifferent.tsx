@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Layers, Brain, Handshake, Lightbulb, Shield } from "lucide-react";
 

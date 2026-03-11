@@ -1,7 +1,8 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, Smartphone, Cpu, Megaphone, ShoppingCart, Database, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const services = [
   {
@@ -142,7 +143,7 @@ const ServicesSection = () => {
                 <p className="text-sm text-section-dark-foreground/50 leading-relaxed mb-5 relative">
                   {item.desc}
                 </p>
-                <Link to={current.href} className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2.5 transition-all relative">
+                <Link href={current.href} className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2.5 transition-all relative">
                   Learn More <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>

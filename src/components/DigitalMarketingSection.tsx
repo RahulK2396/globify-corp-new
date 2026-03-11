@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const services = [
   {
@@ -52,7 +53,7 @@ const DigitalMarketingSection = () => {
                 that increase visibility, engagement, and conversions.
               </p>
               <div>
-                <Link to="/digital-marketing">
+                <Link href="/digital-marketing">
                   <motion.span
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -68,7 +69,7 @@ const DigitalMarketingSection = () => {
             {/* Right side - service cards */}
             <div className="flex-1 flex flex-col justify-center gap-0">
               {services.map((service, i) => (
-                <Link to={service.link} key={service.title}>
+                <Link href={service.link} key={service.title}>
                   <motion.div
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}

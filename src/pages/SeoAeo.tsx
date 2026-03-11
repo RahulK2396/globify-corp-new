@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -377,7 +378,7 @@ const SeoAeo = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 gap-2">
-                <Link to="/digital-marketing">
+                <Link href="/digital-marketing">
                   Explore Digital Marketing <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>

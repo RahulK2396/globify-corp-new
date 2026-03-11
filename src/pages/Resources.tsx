@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { FileText, BarChart3, Video, Lightbulb, ArrowRight, Download, Play, BookOpen, TrendingUp, Brain, Zap, Target } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -339,7 +340,7 @@ const Resources = () => {
                 </div>
                 <h3 className="text-base font-bold text-section-dark-foreground mb-2 group-hover:text-primary transition-colors font-display leading-snug">{ins.title}</h3>
                 <p className="text-sm text-section-dark-foreground/50 leading-relaxed mb-3">{ins.description}</p>
-                <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all">
+                <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all">
                   Read More <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </motion.div>

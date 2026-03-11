@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -16,6 +17,7 @@ import { useContactDialog } from "@/contexts/ContactDialogContext";
 import { ArrowRight, CheckCircle, TrendingUp, Zap, Clock, BarChart3, Rocket, RefreshCw, ShoppingCart, Palette, Globe, ChevronRight, MessageCircle, Phone, Send, Lock, CreditCard, FileCheck, Truck, Layers } from "lucide-react";
 import { toast } from "sonner";
 import shopifyLogo from "@/assets/shopify-logo.png";
+import Image from "next/image";
 
 const InlineLeadForm = ({ id, variant = "dark" }: { id: string; variant?: "dark" | "light" }) => {
   const [step, setStep] = useState(1); const [email, setEmail] = useState(""); const [submitted, setSubmitted] = useState(false);
@@ -75,7 +77,7 @@ const ShopifySouthAfrica = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6">
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white border border-border/20 rounded-full px-4 py-1.5 text-xs font-medium text-foreground shadow-sm">
-                <img src={shopifyLogo} alt="Shopify Partner" className="h-4 w-auto" /> Certified Shopify Partner
+                <Image src={shopifyLogo} alt="Shopify Partner" className="h-4 w-auto" /> Certified Shopify Partner
               </motion.div>
               <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold leading-[1.1] text-white">
                 Shopify Development for{" "}<span className="bg-gradient-to-r from-[hsl(50,70%,50%)] to-[hsl(145,50%,40%)] bg-clip-text text-transparent">South African Brands</span>
@@ -147,7 +149,7 @@ const ShopifySouthAfrica = () => {
           ].map((s) => (
             <motion.div key={s.title} variants={fadeUp} className="bg-background border border-border rounded-xl p-6 hover:border-primary/30 hover:shadow-lg transition-all group">
               <s.icon className="w-8 h-8 text-primary mb-4" /><h3 className="font-bold text-foreground mb-2">{s.title}</h3><p className="text-sm text-muted leading-relaxed mb-3">{s.desc}</p>
-              {s.link && <Link to={s.link} className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ChevronRight className="w-3 h-3" /></Link>}
+              {s.link && <Link href={s.link} className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ChevronRight className="w-3 h-3" /></Link>}
             </motion.div>
           ))}
         </motion.div>

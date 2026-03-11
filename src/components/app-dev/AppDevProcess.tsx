@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Search, Palette, Code2, TestTube, Rocket, RefreshCw } from "lucide-react";
 

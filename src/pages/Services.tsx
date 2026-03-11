@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -10,7 +11,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import CrossLinkSection from "@/components/CrossLinkSection";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import ProcessSection from "@/components/ProcessSection";
 import wilsonLogo from "@/assets/clients/wilson.png";
@@ -40,6 +41,7 @@ import CaseStudiesSection from "@/components/CaseStudiesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 import servicesHero from "@/assets/services-hero.jpg";
+import Image from "next/image";
 
 const services = [
   {
@@ -223,7 +225,7 @@ const ServicesPage = () => {
       <section className="pt-28 pb-20 bg-[#0a0a1a] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a1a] via-[#0a0a1a]/95 to-transparent z-10" />
         <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-          <img src={servicesHero} alt="Services" className="w-full h-full object-cover" />
+          <Image src={servicesHero} alt="Services" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a1a] to-transparent" />
         </div>
         <div className="container mx-auto px-6 relative z-20">
@@ -298,7 +300,7 @@ const ServicesPage = () => {
               <div className="flex">
                 <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
                   {servicesClients.map((client) => (
-                    <img
+                    <Image
                       key={client.name}
                       src={client.logo}
                       alt={client.name}
@@ -311,7 +313,7 @@ const ServicesPage = () => {
                 </div>
                 <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
                   {servicesClients.map((client) => (
-                    <img
+                    <Image
                       key={`${client.name}-dup`}
                       src={client.logo}
                       alt={client.name}
@@ -420,7 +422,7 @@ const ServicesPage = () => {
                   </div>
 
                   <Link
-                    to={service.link}
+                    href={service.link}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-white/50 group-hover:text-primary transition-all duration-300 hover:gap-2.5"
                   >
                     Explore Service <ArrowRight className="w-3.5 h-3.5" />

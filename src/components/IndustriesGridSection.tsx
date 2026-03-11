@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Heart, DollarSign, ShoppingCart, Settings, ArrowRight } from "lucide-react";
@@ -6,6 +7,7 @@ import healthcareImg from "@/assets/industry-healthcare.jpg";
 import fintechImg from "@/assets/industry-fintech.jpg";
 import retailImg from "@/assets/industry-retail.jpg";
 import supplychainImg from "@/assets/industry-supplychain.jpg";
+import Image from "next/image";
 
 const industries = [
   {
@@ -140,7 +142,7 @@ const IndustriesGridSection = () => {
             >
               {/* Inline banner */}
               <div className="relative h-[160px] overflow-hidden">
-                <img
+                <Image
                   src={current.image}
                   alt={current.title}
                   loading="lazy"

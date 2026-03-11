@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -222,7 +223,7 @@ const WixEcommerce = () => {
                 <s.icon className="w-8 h-8 text-primary mb-4" />
                 <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted leading-relaxed mb-3">{s.desc}</p>
-                {s.link && <Link to={s.link} className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ChevronRight className="w-3 h-3" /></Link>}
+                {s.link && <Link href={s.link} className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ChevronRight className="w-3 h-3" /></Link>}
               </motion.div>
             ))}
           </motion.div>

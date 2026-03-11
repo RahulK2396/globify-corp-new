@@ -1,3 +1,5 @@
+"use client";
+
 import wilsonLogo from "@/assets/clients/wilson.png";
 import instarunwayLogo from "@/assets/clients/instarunway.png";
 import salomonLogo from "@/assets/clients/salomon.png";
@@ -8,6 +10,7 @@ import mrStartLogo from "@/assets/clients/mr-start.png";
 import telnysLogo from "@/assets/clients/telnys.png";
 import riadLogo from "@/assets/clients/riad.png";
 import judithLeiberLogo from "@/assets/clients/judith-leiber.png";
+import Image from "next/image";
 
 const clients = [
   { name: "Salomon", logo: salomonLogo },
@@ -36,7 +39,7 @@ const WebDevClients = () => {
         <div className="flex">
           <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
             {clients.map((client) => (
-              <img
+              <Image
                 key={client.name}
                 src={client.logo}
                 alt={client.name}
@@ -48,7 +51,7 @@ const WebDevClients = () => {
           </div>
           <div className="flex shrink-0 animate-marquee gap-20 items-center pr-20">
             {clients.map((client) => (
-              <img
+              <Image
                 key={`${client.name}-dup`}
                 src={client.logo}
                 alt={client.name}

@@ -1,5 +1,5 @@
+"use client";
 import { motion } from "framer-motion";
-
 import shopifyLogo from "@/assets/partners/shopify.svg";
 import metaLogo from "@/assets/partners/meta.svg";
 import mailchimpLogo from "@/assets/partners/mailchimp.svg";
@@ -9,6 +9,7 @@ import hubspotLogo from "@/assets/partners/hubspot.svg";
 import microsoftLogo from "@/assets/partners/microsoft.svg";
 import cloudflareLogo from "@/assets/partners/cloudflare.svg";
 import stripeLogo from "@/assets/partners/stripe.svg";
+import Image from "next/image";
 
 type Partner = 
   | { type: "image"; name: string; logo: string }
@@ -62,7 +63,7 @@ const PartnersSection = () => {
             >
               {partner.type === "image" ? (
                 <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                  <img
+                  <Image
                     src={partner.logo}
                     alt={partner.name}
                     loading="lazy"

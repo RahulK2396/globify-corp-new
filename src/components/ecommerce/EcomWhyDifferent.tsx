@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Layers, Cpu, Handshake, BarChart3, Shield } from "lucide-react";
 

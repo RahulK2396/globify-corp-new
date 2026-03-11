@@ -1,4 +1,6 @@
-import { lazy, Suspense } from "react";
+"use client";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import MobileFloatingCTA from "@/components/MobileFloatingCTA";
 import HeroSection from "@/components/HeroSection";
@@ -8,25 +10,25 @@ import SEOHead, { ORGANIZATION_SCHEMA } from "@/components/SEOHead";
 import ScrollDepthReveal from "@/components/ScrollDepthReveal";
 
 // Lazy-load below-fold sections
-const StatsSection = lazy(() => import("@/components/StatsSection"));
-const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const TechBannerSection = lazy(() => import("@/components/TechBannerSection"));
-const AIAutomationSection = lazy(() => import("@/components/AIAutomationSection"));
-const DigitalMarketingSection = lazy(() => import("@/components/DigitalMarketingSection"));
-const ProcessSection = lazy(() => import("@/components/ProcessSection"));
-const TechStackSection = lazy(() => import("@/components/TechStackSection"));
-const PartnersSection = lazy(() => import("@/components/PartnersSection"));
-const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
-const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
-const WhyUsSection = lazy(() => import("@/components/WhyUsSection"));
-const CTASection = lazy(() => import("@/components/CTASection"));
-const ProductsSection = lazy(() => import("@/components/ProductsSection"));
-const MissionBreaker = lazy(() => import("@/components/MissionBreaker"));
-const IndustriesGridSection = lazy(() => import("@/components/IndustriesGridSection"));
-const FAQSection = lazy(() => import("@/components/FAQSection"));
-const ScrollingBanner = lazy(() => import("@/components/ScrollingBanner"));
-const Footer = lazy(() => import("@/components/Footer"));
-const ParallaxLayer = lazy(() => import("@/components/ParallaxLayer"));
+const StatsSection = dynamic(() => import("@/components/StatsSection"), { ssr: false });
+const ServicesSection = dynamic(() => import("@/components/ServicesSection"), { ssr: false });
+const TechBannerSection = dynamic(() => import("@/components/TechBannerSection"), { ssr: false });
+const AIAutomationSection = dynamic(() => import("@/components/AIAutomationSection"), { ssr: false });
+const DigitalMarketingSection = dynamic(() => import("@/components/DigitalMarketingSection"), { ssr: false });
+const ProcessSection = dynamic(() => import("@/components/ProcessSection"), { ssr: false });
+const TechStackSection = dynamic(() => import("@/components/TechStackSection"), { ssr: false });
+const PartnersSection = dynamic(() => import("@/components/PartnersSection"), { ssr: false });
+const CaseStudiesSection = dynamic(() => import("@/components/CaseStudiesSection"), { ssr: false });
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), { ssr: false });
+const WhyUsSection = dynamic(() => import("@/components/WhyUsSection"), { ssr: false });
+const CTASection = dynamic(() => import("@/components/CTASection"), { ssr: false });
+const ProductsSection = dynamic(() => import("@/components/ProductsSection"), { ssr: false });
+const MissionBreaker = dynamic(() => import("@/components/MissionBreaker"), { ssr: false });
+const IndustriesGridSection = dynamic(() => import("@/components/IndustriesGridSection"), { ssr: false });
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
+const ScrollingBanner = dynamic(() => import("@/components/ScrollingBanner"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+const ParallaxLayer = dynamic(() => import("@/components/ParallaxLayer"), { ssr: false });
 
 const homeFAQ = [
   { question: "What does Globify do differently from a traditional agency?", answer: "Globify is a 360° digital transformation enabler, not a web agency. We engineer AI-powered solutions that automate operations, drive revenue growth, and deliver measurable ROI, combining ERP, AI, commerce, and marketing into unified growth ecosystems." },

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Rocket, Target, DollarSign, Users, Cloud, RefreshCw, ArrowRight } from "lucide-react";
 

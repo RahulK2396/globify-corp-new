@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+"use client";
+import Head from "next/head";
 
 interface FAQItem {
   question: string;
@@ -45,14 +46,12 @@ const SITE_NAME = "Globify";
 const BASE_URL = "https://globify.ae";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/favicon.png`;
 
-// Dynamic OG image based on page path for unique social sharing previews
 const getOGImageForPath = (canonical?: string): string => {
   if (!canonical) return DEFAULT_OG_IMAGE;
-  // For now all pages use default OG image - replace with proper 1200x630 images when available
   return DEFAULT_OG_IMAGE;
 };
 
-const ORGANIZATION_SCHEMA = {
+export const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Globify",
@@ -142,7 +141,12 @@ const buildHowToSchema = (howTo: { name: string; description?: string; steps: Ho
   })),
 });
 
-const buildArticleSchema = (title: string, description: string, canonical: string, article: { publishedTime?: string; author?: string; section?: string }) => ({
+const buildArticleSchema = (
+  title: string,
+  description: string,
+  canonical: string,
+  article: { publishedTime?: string; author?: string; section?: string }
+) => ({
   "@context": "https://schema.org",
   "@type": "Article",
   headline: title,
@@ -200,13 +204,16 @@ const SEOHead = ({
   if (speakable && canonical) schemas.push(buildSpeakableSchema(canonical, speakable));
 
   return (
-    <Helmet>
+    <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+      {noindex
+        ? <meta name="robots" content="noindex, nofollow" />
+        : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      }
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      {/* Hreflang - only x-default since all regions serve same content */}
+      {/* Hreflang */}
       {canonical && <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${canonical}`} />}
       {canonical && <link rel="alternate" hrefLang="en" href={`${BASE_URL}${canonical}`} />}
 
@@ -225,25 +232,16 @@ const SEOHead = ({
       <meta name="twitter:image" content={resolvedOGImage} />
 
       {/* Article metadata */}
-      {article?.publishedTime && (
-        <meta property="article:published_time" content={article.publishedTime} />
-      )}
-      {article?.author && (
-        <meta property="article:author" content={article.author} />
-      )}
-      {article?.section && (
-        <meta property="article:section" content={article.section} />
-      )}
+      {article?.publishedTime && <meta property="article:published_time" content={article.publishedTime} />}
+      {article?.author && <meta property="article:author" content={article.author} />}
+      {article?.section && <meta property="article:section" content={article.section} />}
 
       {/* JSON-LD Schemas */}
       {schemas.map((schema, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
-    </Helmet>
+    </Head>
   );
 };
 
-export { ORGANIZATION_SCHEMA };
 export default SEOHead;

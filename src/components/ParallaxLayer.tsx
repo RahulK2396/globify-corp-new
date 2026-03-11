@@ -1,3 +1,4 @@
+"use client";
 import { useParallax } from "@/hooks/useParallax";
 import { ReactNode } from "react";
 

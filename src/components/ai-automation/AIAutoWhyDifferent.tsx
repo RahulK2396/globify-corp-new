@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Lightbulb, DollarSign, Link2, Shield, Handshake, Award } from "lucide-react";
 

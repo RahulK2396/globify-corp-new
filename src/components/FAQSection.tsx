@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import {
@@ -7,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import contactSupportImg from "@/assets/contact-support.png";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -62,7 +64,7 @@ const FAQSection = () => {
             >
               Contact our team →
             </button>
-            <img src={contactSupportImg} alt="Contact support" className="mt-3 w-[280px] md:w-[320px] object-contain" />
+            <Image src={contactSupportImg} alt="Contact support" className="mt-3 w-[280px] md:w-[320px] object-contain" />
           </motion.div>
 
           <Accordion type="single" collapsible className="space-y-4">

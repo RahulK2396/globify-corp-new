@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Zap, DollarSign, ArrowRight } from "lucide-react";
 

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Award, Star, Shield, BadgeCheck, Trophy, Globe, CheckCircle } from "lucide-react";
 

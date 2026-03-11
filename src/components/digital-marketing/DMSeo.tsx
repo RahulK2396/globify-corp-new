@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Search, FileText, Link2, MapPin, Globe, TrendingUp, ArrowRight } from "lucide-react";
 

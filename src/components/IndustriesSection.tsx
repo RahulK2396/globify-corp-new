@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Cpu, Globe, Smartphone, Cloud, Database, Code } from "lucide-react";
 

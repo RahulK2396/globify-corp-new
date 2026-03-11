@@ -1,8 +1,10 @@
+"use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
+import Image from "next/image";
 
 const MobileFloatingCTA = () => {
   const [visible, setVisible] = useState(false);
@@ -35,7 +37,7 @@ const MobileFloatingCTA = () => {
                   className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-hero-foreground/30 flex items-center justify-center active:bg-hero-foreground/10 transition-colors flex-shrink-0 overflow-hidden"
                   aria-label="Chat on WhatsApp"
                 >
-                  <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-cover" />
+                  <Image src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-cover" />
                 </a>
                 <button
                   onClick={() => setContactOpen(true)}

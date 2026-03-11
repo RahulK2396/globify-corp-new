@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Send } from "lucide-react";
@@ -5,6 +6,7 @@ import { useContactDialog } from "@/contexts/ContactDialogContext";
 import { toast } from "sonner";
 import { submitLeadForm, extractFormFields } from "@/lib/submitLeadForm";
 import contactSupportImg from "@/assets/contact-support.png";
+import Image from "next/image";
 
 const WebDevLeadCapture = () => {
   const { openContactDialog } = useContactDialog();
@@ -46,7 +48,7 @@ const WebDevLeadCapture = () => {
               <p className="text-sm font-bold tracking-[0.2em] uppercase text-primary mb-2">Prefer a quick chat?</p>
               <p className="text-sm text-muted-foreground mb-3">Schedule a call directly with our solutions team.</p>
               <button onClick={openContactDialog} className="inline-flex items-center gap-3 text-sm font-semibold text-primary hover:gap-4 transition-all group">
-                <img src={contactSupportImg} alt="Contact support" className="w-8 h-8 rounded-full object-cover" />
+                <Image src={contactSupportImg} alt="Contact support" className="w-8 h-8 rounded-full object-cover" />
                 Book a Call <ArrowRight className="w-4 h-4" />
               </button>
             </div>

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { TrendingUp, Server, Settings } from "lucide-react";
 

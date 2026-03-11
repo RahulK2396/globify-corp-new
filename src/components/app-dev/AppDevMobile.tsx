@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Smartphone, TabletSmartphone, Cpu, Layers, Wifi, Gauge, ArrowRight } from "lucide-react";
 

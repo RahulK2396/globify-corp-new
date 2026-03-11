@@ -1,7 +1,8 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Shield, Award, Star, Brain, Search, Lightbulb, Cog, TrendingUp, RefreshCw, BarChart3, Zap, Target, Layers, Users, Eye } from "lucide-react";
 import CrossLinkSection from "@/components/CrossLinkSection";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -117,7 +118,7 @@ const AITransformationFramework = () => {
                 <button onClick={openContactDialog} className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
                   Get Your Free Digital Maturity Audit <ArrowRight className="w-4 h-4" />
                 </button>
-                <Link to="/digital-transformation" className="inline-flex items-center justify-center gap-2 border border-hero-foreground/20 text-hero-foreground/70 px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
+                <Link href="/digital-transformation" className="inline-flex items-center justify-center gap-2 border border-hero-foreground/20 text-hero-foreground/70 px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
                   Explore Transformation Services
                 </Link>
               </div>

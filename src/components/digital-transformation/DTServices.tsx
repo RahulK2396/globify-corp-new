@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Lightbulb, Cog, Cloud, Monitor, Bot, BarChart3, ArrowRight } from "lucide-react";
 

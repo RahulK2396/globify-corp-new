@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, TrendingUp, Stethoscope, BarChart3, ShoppingCart, Truck, Factory, Rocket, Code2, Smartphone, Globe, Zap, Palette, Layers, Monitor, Settings, Megaphone, Search, Target, MessageSquare } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 type CrossLinkItem = {
   icon: React.ElementType;
@@ -69,7 +70,7 @@ const CrossLinkSection = ({ currentPage, links, variant = "dark" }: CrossLinkSec
           {items.map((item, i) => (
             <motion.div key={item.href} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
               <Link
-                to={item.href}
+                href={item.href}
                 className={`group block h-full p-6 rounded-2xl border transition-all ${
                   isDark
                     ? "border-section-dark-foreground/[0.06] hover:border-primary/20 hover:bg-section-dark-foreground/[0.02]"

@@ -1,6 +1,7 @@
+"use client";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, Search, Calendar, Clock, TrendingUp, BookOpen, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -135,7 +136,7 @@ const Blog = () => {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link
-                    to={`/blog/${post.slug}`}
+                    href={`/blog/${post.slug}`}
                     className="group block h-full"
                   >
                     <div className="h-full rounded-2xl border border-border hover:border-primary/30 bg-card p-6 transition-all hover:shadow-lg">
@@ -204,7 +205,7 @@ const Blog = () => {
                     transition={{ delay: i * 0.05 }}
                   >
                     <Link
-                      to={`/blog/${post.slug}`}
+                      href={`/blog/${post.slug}`}
                       className="group block h-full"
                     >
                       <div className={`h-full rounded-2xl border p-6 transition-all hover:shadow-lg ${
@@ -291,7 +292,7 @@ const Blog = () => {
                 <ArrowRight className="w-4 h-4" />
               </button>
               <Link
-                to="/services"
+                href="/services"
                 className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full text-sm font-semibold hover:border-primary/30 hover:text-primary transition-colors"
               >
                 Explore Our Services

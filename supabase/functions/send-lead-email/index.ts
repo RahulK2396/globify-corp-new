@@ -202,7 +202,7 @@ Deno.serve(async (req) => {
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);border-radius:16px 16px 0 0;padding:32px 32px 28px;text-align:center;">
-      <img src="https://globify-corp.lovable.app/favicon.png" alt="Globify" width="48" height="48" style="display:block;margin:0 auto 12px;" />
+      <Image src="https://globify-corp.lovable.app/favicon.png" alt="Globify" width="48" height="48" style="display:block;margin:0 auto 12px;" />
       <p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase;">Design · Build · Scale</p>
     </div>
 
@@ -306,7 +306,7 @@ Deno.serve(async (req) => {
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);border-radius:16px 16px 0 0;padding:32px 32px 28px;text-align:center;">
-      <img src="https://globify-corp.lovable.app/favicon.png" alt="Globify" width="48" height="48" style="display:block;margin:0 auto 12px;" />
+      <Image src="https://globify-corp.lovable.app/favicon.png" alt="Globify" width="48" height="48" style="display:block;margin:0 auto 12px;" />
       <h1 style="margin:0;font-size:22px;font-weight:700;color:#ffffff;letter-spacing:-0.3px;">Globify</h1>
       <p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase;">Design · Build · Scale</p>
     </div>

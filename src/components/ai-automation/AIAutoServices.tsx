@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Brain, Workflow, MessageSquare, FileSearch, TrendingUp, Cpu, Link2 } from "lucide-react";
 

@@ -1,7 +1,8 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Target, TrendingUp, Users, MousePointer, BarChart3, Zap, Eye, Brain, Layers, RefreshCw, Shield, Award, Star } from "lucide-react";
 import CrossLinkSection from "@/components/CrossLinkSection";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -88,7 +89,7 @@ const CRORevenueEngineering = () => {
                 <button onClick={openContactDialog} className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
                   Get Your Free Revenue Audit <ArrowRight className="w-4 h-4" />
                 </button>
-                <Link to="/digital-marketing" className="inline-flex items-center justify-center gap-2 border border-hero-foreground/20 text-hero-foreground/70 px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
+                <Link href="/digital-marketing" className="inline-flex items-center justify-center gap-2 border border-hero-foreground/20 text-hero-foreground/70 px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
                   Explore Growth Marketing
                 </Link>
               </div>
@@ -188,7 +189,7 @@ const CRORevenueEngineering = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {useCases.map((uc, i) => (
               <motion.div key={uc.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <Link to={uc.link} className="block group p-8 rounded-2xl border border-border hover:border-primary/20 bg-card hover:shadow-lg transition-all h-full">
+                <Link href={uc.link} className="block group p-8 rounded-2xl border border-border hover:border-primary/20 bg-card hover:shadow-lg transition-all h-full">
                   <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">{uc.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">{uc.desc}</p>
                   <span className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">

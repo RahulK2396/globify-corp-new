@@ -1,7 +1,8 @@
+"use client";
 import { useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import portfolioAmericanKoil from "@/assets/portfolio-american-koil.jpg";
 import portfolioMoher from "@/assets/portfolio-moher.jpeg";
@@ -13,6 +14,7 @@ import portfolioBeflare from "@/assets/portfolio-beflare.jpg";
 import portfolioEkasysRetail from "@/assets/portfolio-ekasys-retail.jpg";
 import portfolioMedoc from "@/assets/portfolio-medoc.jpeg";
 import portfolioEkasysRE from "@/assets/portfolio-ekasys-realestate.jpg";
+import Image from "next/image";
 
 const projects = [
   {
@@ -224,7 +226,7 @@ const CaseStudiesSection = () => {
                 <ArrowRight className="w-5 h-5 text-section-dark-foreground/50" />
               </button>
               <Link
-                to="/projects"
+                href="/projects"
                 className="hidden lg:inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all font-display ml-4"
               >
                 View All <ArrowRight className="w-4 h-4" />
@@ -249,7 +251,7 @@ const CaseStudiesSection = () => {
               <>
                 {/* Image */}
                 <div className="relative h-[400px] md:h-[450px] overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
@@ -317,7 +319,7 @@ const CaseStudiesSection = () => {
                 className="group relative flex-shrink-0 w-[85vw] md:w-[550px] lg:w-[600px] rounded-2xl overflow-hidden border border-section-dark-foreground/[0.06] hover:border-primary/20 transition-all duration-500 snap-start pointer-events-auto"
               >
                 {project.slug ? (
-                  <Link to={`/case-study/${project.slug}`} className="block">
+                  <Link href={`/case-study/${project.slug}`} className="block">
                     {cardContent}
                   </Link>
                 ) : (
@@ -331,7 +333,7 @@ const CaseStudiesSection = () => {
         {/* Mobile CTA */}
         <div className="container mx-auto px-6 mt-8 lg:hidden">
           <Link
-            to="/projects"
+            href="/projects"
             className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all font-display"
           >
             View All Projects <ArrowRight className="w-4 h-4" />

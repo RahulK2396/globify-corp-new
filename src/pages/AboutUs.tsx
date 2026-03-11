@@ -1,12 +1,14 @@
+"use client";
 import { motion } from "framer-motion";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 import { ArrowRight, CheckCircle2, Shield, Lightbulb, Users, Eye, Target, Award, Handshake, BarChart3, Globe, Zap, Heart, Star, Building, Stethoscope, Smartphone, Factory, GraduationCap, ShoppingCart, Truck, Dumbbell, Brain, Bot, TrendingUp, Cpu, Database, Network, Sparkles, LineChart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import SEOHead, { ORGANIZATION_SCHEMA } from "@/components/SEOHead";
 import CrossLinkSection from "@/components/CrossLinkSection";
 import agencyImg from "@/assets/agency-services.jpg";
+import Image from "next/image";
 
 const stats = [
   { value: "300+", label: "AI-Powered Transformations" },
@@ -136,7 +138,7 @@ const AboutUs = () => {
                 <button onClick={() => openContactDialog()} className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
                   Book an AI Strategy Session <ArrowRight className="w-4 h-4" />
                 </button>
-                <Link to="/ai-transformation-framework" className="inline-flex items-center justify-center gap-2 border border-hero-foreground/20 text-hero-foreground/70 px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
+                <Link href="/ai-transformation-framework" className="inline-flex items-center justify-center gap-2 border border-hero-foreground/20 text-hero-foreground/70 px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
                   Explore Our AI Framework
                 </Link>
               </div>
@@ -306,7 +308,7 @@ const AboutUs = () => {
                 <h3 className="text-2xl font-semibold text-hero-foreground leading-[1.1] mb-6">Proprietary AI-Enhanced ERP</h3>
 
                 <div className="space-y-5">
-                  <Link to="/products" className="block group p-6 rounded-2xl border border-hero-foreground/[0.06] hover:border-primary/20 hover:bg-hero-foreground/[0.03] transition-all">
+                  <Link href="/products" className="block group p-6 rounded-2xl border border-hero-foreground/[0.06] hover:border-primary/20 hover:bg-hero-foreground/[0.03] transition-all">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="text-lg font-semibold text-hero-foreground group-hover:text-primary transition-colors">MEDOC</h4>
                       <ArrowRight className="w-4 h-4 text-hero-foreground/20 group-hover:text-primary transition-colors" />
@@ -314,7 +316,7 @@ const AboutUs = () => {
                     <p className="text-sm text-hero-foreground/40">AI-powered Hospital Management System — predictive diagnostics, automated scheduling, intelligent billing, and telemedicine with NLP-driven clinical notes.</p>
                   </Link>
 
-                  <Link to="/products" className="block group p-6 rounded-2xl border border-hero-foreground/[0.06] hover:border-primary/20 hover:bg-hero-foreground/[0.03] transition-all">
+                  <Link href="/products" className="block group p-6 rounded-2xl border border-hero-foreground/[0.06] hover:border-primary/20 hover:bg-hero-foreground/[0.03] transition-all">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="text-lg font-semibold text-hero-foreground group-hover:text-primary transition-colors">EKASYS</h4>
                       <ArrowRight className="w-4 h-4 text-hero-foreground/20 group-hover:text-primary transition-colors" />
@@ -327,7 +329,7 @@ const AboutUs = () => {
               {/* Agency visual + highlights */}
               <div>
                 <div className="rounded-2xl overflow-hidden mb-6 border border-hero-foreground/[0.06]">
-                  <img src={agencyImg} alt="Globify digital agency workspace" className="w-full h-48 object-cover" loading="lazy" />
+                  <Image src={agencyImg} alt="Globify digital agency workspace" className="w-full h-48 object-cover" loading="lazy" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-5 rounded-2xl border border-hero-foreground/[0.06] hover:border-primary/20 transition-all">
@@ -459,7 +461,7 @@ const AboutUs = () => {
               <button onClick={() => openContactDialog()} className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all hover:gap-3">
                 Book an AI Strategy Session <ArrowRight className="w-4 h-4" />
               </button>
-              <Link to="/ai-transformation-framework" className="inline-flex items-center justify-center gap-2 border border-border text-muted px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
+              <Link href="/ai-transformation-framework" className="inline-flex items-center justify-center gap-2 border border-border text-muted px-8 py-4 rounded-full font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all">
                 Explore AI Framework
               </Link>
             </div>

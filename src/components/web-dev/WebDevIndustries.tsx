@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { ShoppingCart, Stethoscope, Factory, Wifi, GraduationCap, Rocket, Store } from "lucide-react";
 
