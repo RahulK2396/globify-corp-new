@@ -9,11 +9,13 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { blogPosts } from "@/data/blogData";
 import { useEffect, useCallback } from "react";
+type BlogPostProps = {
+  slug: string;
+};
 
-const BlogPost = () => {
+const BlogPost = ({ slug }: BlogPostProps) => {
   const { openContactDialog } = useContactDialog();
   const params = useParams<{ slug: string }>();
-  const slug = params?.slug;
   const router = useRouter();
   const post = blogPosts.find((p) => p.slug === slug);
 
