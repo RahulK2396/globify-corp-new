@@ -16,9 +16,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const TechnologyPage = () => {
-  const params = useParams<{ slug: string }>();
-  const slug = params?.slug || "";
+interface TechnologyPageProps {
+  slug: string;
+}
+const TechnologyPage = ({ slug }: TechnologyPageProps) => {
   const { openContactDialog } = useContactDialog();
   const tech = getTechnology(slug);
 
