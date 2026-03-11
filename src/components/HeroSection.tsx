@@ -10,9 +10,15 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import NebulaLayer from "./hero-globe/NebulaLayer";
 import HUDGridLayer from "./hero-globe/HUDGridLayer";
 
-const StarfieldLayer = dynamic(() => import("./hero-globe/StarfieldLayer"), { ssr: false });
-const ParticleTrails = dynamic(() => import("./hero-globe/ParticleTrails"), { ssr: false });
-const GlobeScene = dynamic(() => import("./hero-globe/GlobeScene"), { ssr: false });
+const StarfieldLayer = dynamic(() => import("./hero-globe/StarfieldLayer"), {
+  ssr: false,
+});
+const ParticleTrails = dynamic(() => import("./hero-globe/ParticleTrails"), {
+  ssr: false,
+});
+const GlobeScene = dynamic(() => import("./hero-globe/GlobeScene"), {
+  ssr: false,
+});
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -30,7 +36,10 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
       const parent = moonRef.current.parentElement;
       if (parent) {
         const rect = parent.getBoundingClientRect();
-        const initial = { x: rect.width - size - rect.width * 0.08, y: rect.height * 0.08 };
+        const initial = {
+          x: rect.width - size - rect.width * 0.08,
+          y: rect.height * 0.08,
+        };
         posRef.current = initial;
         moonRef.current.style.left = `${initial.x}px`;
         moonRef.current.style.top = `${initial.y}px`;
@@ -55,25 +64,25 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
       });
     };
 
-   const onUp = (e: PointerEvent) => {
-  draggingRef.current = false;
-  if (moonRef.current) {
-    try {
-      moonRef.current.releasePointerCapture(e.pointerId);
-    } catch (_e) {
-      // releasePointerCapture may fail if pointer was already released
-    }
-  }
-};
+    const onUp = (e: PointerEvent) => {
+      draggingRef.current = false;
+      if (moonRef.current) {
+        try {
+          moonRef.current.releasePointerCapture(e.pointerId);
+        } catch (_e) {
+          // releasePointerCapture may fail if pointer was already released
+        }
+      }
+    };
 
-    window.addEventListener('pointermove', onMove, { passive: false });
-    window.addEventListener('pointerup', onUp);
-    window.addEventListener('pointercancel', onUp);
+    window.addEventListener("pointermove", onMove, { passive: false });
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
 
     return () => {
-      window.removeEventListener('pointermove', onMove);
-      window.removeEventListener('pointerup', onUp);
-      window.removeEventListener('pointercancel', onUp);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
@@ -82,7 +91,10 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
     e.preventDefault();
     e.stopPropagation();
     draggingRef.current = true;
-    offsetRef.current = { x: e.clientX - posRef.current.x, y: e.clientY - posRef.current.y };
+    offsetRef.current = {
+      x: e.clientX - posRef.current.x,
+      y: e.clientY - posRef.current.y,
+    };
     moonRef.current?.setPointerCapture(e.pointerId);
   }, []);
 
@@ -94,9 +106,9 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
         width: size,
         height: size,
         opacity: initialized ? 1 : 0,
-        touchAction: 'none',
-        userSelect: 'none',
-        WebkitUserSelect: 'none',
+        touchAction: "none",
+        userSelect: "none",
+        WebkitUserSelect: "none",
       }}
       onPointerDown={onPointerDown}
     >
@@ -108,11 +120,12 @@ const DraggableMoon = ({ isMobile }: { isMobile: boolean }) => {
         draggable={false}
         className="w-full h-full object-cover"
         style={{
-          borderRadius: '50%',
-          filter: 'brightness(1.2) contrast(1.1)',
-          boxShadow: '0 0 20px 5px rgba(200,210,230,0.15), 0 0 40px 12px rgba(180,200,220,0.06)',
-          clipPath: 'circle(47%)',
-          pointerEvents: 'none',
+          borderRadius: "50%",
+          filter: "brightness(1.2) contrast(1.1)",
+          boxShadow:
+            "0 0 20px 5px rgba(200,210,230,0.15), 0 0 40px 12px rgba(180,200,220,0.06)",
+          clipPath: "circle(47%)",
+          pointerEvents: "none",
         }}
       />
     </div>
@@ -138,7 +151,8 @@ const HeroSection = () => {
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    const handler = (e: MediaQueryListEvent) =>
+      setPrefersReducedMotion(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
@@ -152,27 +166,33 @@ const HeroSection = () => {
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
       mouseTarget.current = { x, y };
     },
-    [prefersReducedMotion, isMobile]
+    [prefersReducedMotion, isMobile],
   );
 
   const handleMouseLeave = useCallback(() => {
     mouseTarget.current = { x: 0, y: 0 };
   }, []);
 
-   // rAF parallax loop
+  // rAF parallax loop
   useEffect(() => {
     if (prefersReducedMotion || isMobile) return;
     const tick = () => {
       const lerp = 0.1;
-      currentParallax.current.x += (mouseTarget.current.x - currentParallax.current.x) * lerp;
-      currentParallax.current.y += (mouseTarget.current.y - currentParallax.current.y) * lerp;
+      currentParallax.current.x +=
+        (mouseTarget.current.x - currentParallax.current.x) * lerp;
+      currentParallax.current.y +=
+        (mouseTarget.current.y - currentParallax.current.y) * lerp;
       const cx = currentParallax.current.x;
       const cy = currentParallax.current.y;
 
-      if (starfieldRef.current) starfieldRef.current.style.transform = `translate(${cx * 3}px, ${cy * 3}px)`;
-      if (nebulaRef.current) nebulaRef.current.style.transform = `translate(${cx * 6}px, ${cy * 6}px)`;
-      if (hudRef.current) hudRef.current.style.transform = `translate(${cx * 10}px, ${cy * 10}px)`;
-      if (globeWrapRef.current) globeWrapRef.current.style.transform = `translate(${cx * 16}px, ${cy * 16}px)`;
+      if (starfieldRef.current)
+        starfieldRef.current.style.transform = `translate(${cx * 3}px, ${cy * 3}px)`;
+      if (nebulaRef.current)
+        nebulaRef.current.style.transform = `translate(${cx * 6}px, ${cy * 6}px)`;
+      if (hudRef.current)
+        hudRef.current.style.transform = `translate(${cx * 10}px, ${cy * 10}px)`;
+      if (globeWrapRef.current)
+        globeWrapRef.current.style.transform = `translate(${cx * 16}px, ${cy * 16}px)`;
 
       animFrame.current = requestAnimationFrame(tick);
     };
@@ -197,7 +217,10 @@ const HeroSection = () => {
     >
       {/* Layer 1: Starfield */}
       {!isMobile && (
-        <div ref={starfieldRef} className="absolute inset-0 will-change-transform z-[5]">
+        <div
+          ref={starfieldRef}
+          className="absolute inset-0 will-change-transform z-[5]"
+        >
           {!prefersReducedMotion && <StarfieldLayer />}
         </div>
       )}
@@ -223,11 +246,15 @@ const HeroSection = () => {
       <DraggableMoon isMobile={isMobile} />
 
       {/* Globe */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 2 }}>
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        style={{ zIndex: 2 }}
+      >
         <motion.div
           className="absolute w-full h-[2px]"
           style={{
-            background: "linear-gradient(90deg, transparent 15%, hsl(25 70% 50% / 0.3) 40%, hsl(25 80% 70% / 0.6) 50%, hsl(25 70% 50% / 0.3) 60%, transparent 85%)",
+            background:
+              "linear-gradient(90deg, transparent 15%, hsl(25 70% 50% / 0.3) 40%, hsl(25 80% 70% / 0.6) 50%, hsl(25 70% 50% / 0.3) 60%, transparent 85%)",
             filter: "blur(1px)",
           }}
           initial={{ opacity: 0, scaleX: 0 }}
@@ -237,7 +264,8 @@ const HeroSection = () => {
         <motion.div
           className="absolute w-full h-[20px]"
           style={{
-            background: "linear-gradient(90deg, transparent 20%, hsl(25 70% 50% / 0.06) 40%, hsl(25 80% 60% / 0.12) 50%, hsl(25 70% 50% / 0.06) 60%, transparent 80%)",
+            background:
+              "linear-gradient(90deg, transparent 20%, hsl(25 70% 50% / 0.06) 40%, hsl(25 80% 60% / 0.12) 50%, hsl(25 70% 50% / 0.06) 60%, transparent 80%)",
             filter: "blur(8px)",
           }}
           initial={{ opacity: 0 }}
@@ -246,15 +274,18 @@ const HeroSection = () => {
         />
         <div
           ref={globeWrapRef}
-          className="relative will-change-transform pointer-events-auto"
-          style={{
-            width: isMobile ? "70vw" : "55vw",
-            height: isMobile ? "70vw" : "55vw",
-            maxWidth: "780px",
-            maxHeight: "780px",
-          }}
+          className="
+    relative will-change-transform pointer-events-auto
+    w-[70vw] h-[70vw]
+    md:w-[55vw] md:h-[55vw]
+    max-w-[780px] max-h-[780px]
+  "
         >
-          <GlobeScene mouseTarget={mouseTarget} isMobile={isMobile} />
+          <GlobeScene
+            key={isMobile ? "mobile" : "desktop"}
+            mouseTarget={mouseTarget}
+            isMobile={isMobile}
+          />
         </div>
       </div>
 
@@ -292,7 +323,11 @@ const HeroSection = () => {
                   className="inline-block mr-[0.25em]"
                   initial={{ opacity: 0, y: 50, rotateX: -30 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ delay: 0.1 + i * 0.07, duration: 0.6, ease: easeOut }}
+                  transition={{
+                    delay: 0.1 + i * 0.07,
+                    duration: 0.6,
+                    ease: easeOut,
+                  }}
                 >
                   {word}
                 </motion.span>
@@ -305,7 +340,11 @@ const HeroSection = () => {
                   className="inline-block mr-[0.25em] text-shimmer"
                   initial={{ opacity: 0, y: 50, rotateX: -30 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ delay: 0.25 + i * 0.07, duration: 0.6, ease: easeOut }}
+                  transition={{
+                    delay: 0.25 + i * 0.07,
+                    duration: 0.6,
+                    ease: easeOut,
+                  }}
                 >
                   {word}
                 </motion.span>
@@ -319,8 +358,9 @@ const HeroSection = () => {
             transition={{ delay: 0.45, duration: 0.6, ease: easeOut }}
             className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-xl text-hero-foreground/60 max-w-xl leading-relaxed font-light"
           >
-            We engineer AI-driven digital transformation, intelligent automation,
-            and revenue growth platforms for enterprises ready to lead, not follow.
+            We engineer AI-driven digital transformation, intelligent
+            automation, and revenue growth platforms for enterprises ready to
+            lead, not follow.
           </motion.p>
 
           <motion.div
@@ -329,7 +369,10 @@ const HeroSection = () => {
             transition={{ delay: 0.55, duration: 0.6, ease: easeOut }}
             className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
-            <button onClick={openContactDialog} className="w-full sm:w-auto group">
+            <button
+              onClick={openContactDialog}
+              className="w-full sm:w-auto group"
+            >
               <motion.span
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -339,7 +382,10 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </motion.span>
             </button>
-            <Link href="/digital-transformation" className="w-full sm:w-auto group">
+            <Link
+              href="/digital-transformation"
+              className="w-full sm:w-auto group"
+            >
               <motion.span
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
