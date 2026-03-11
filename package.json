@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+     "export": "next export",
     "build:dev": "next build --experimental-debug-memory-usage",
     "lint": "next lint",
     "preview": "next start",
