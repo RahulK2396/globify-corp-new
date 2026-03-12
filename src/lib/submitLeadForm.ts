@@ -1,5 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
-
 interface LeadFormData {
   formName: string;
   fields: Record<string, string>;
@@ -24,18 +22,19 @@ export function extractFormFields(form: HTMLFormElement): Record<string, string>
 
 export async function submitLeadForm({ formName, fields }: LeadFormData): Promise<boolean> {
   try {
-    const { data, error } = await supabase.functions.invoke('send-lead-email', {
-      body: { formName, fields },
+    const res = await fetch("/api/send-lead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ formName, fields }),
     });
 
-    if (error) {
-      console.error('Lead form submission error:', error);
-      return false;
-    }
+    const data = await res.json();
 
     return data?.success === true;
   } catch (err) {
-    console.error('Lead form submission error:', err);
+    console.error("Lead form submission error:", err);
     return false;
   }
 }
