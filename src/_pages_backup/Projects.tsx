@@ -9,6 +9,7 @@ import SEOHead from "@/components/SEOHead";
 import { useContactDialog } from "@/contexts/ContactDialogContext";
 
 import portfolioAmericanKoil from "@/assets/portfolio-american-koil.jpg";
+import portfolioSalomon from "@/assets/portfolio-salomon.jpg";
 import portfolioMoher from "@/assets/portfolio-moher.jpeg";
 import portfolioWilson from "@/assets/portfolio-wilson-new.jpeg";
 import portfolioInstaRunway from "@/assets/portfolio-instarunway.jpeg";
@@ -47,7 +48,7 @@ const projects = [
     category: "E-Commerce",
     description:
       "GCC distributor store for a world-leading outdoor sports brand — custom Shopify theme with Arabic RTL, multi-language, and multi-country localization.",
-    image: portfolioAmericanKoil,
+    image: portfolioSalomon,
     stats: { metric: "320%", label: "Revenue Growth" },
     tags: ["Shopify", "GCC", "E-Commerce", "Performance"],
     year: "2024",

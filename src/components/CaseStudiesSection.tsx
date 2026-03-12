@@ -20,16 +20,18 @@ const projects = [
   {
     title: "Wilson",
     category: "Sports E-commerce & Retail",
-    description: "A century of innovation meets modern technology — UI/UX design, web development, e-commerce, and SEO for a global sports brand.",
+    description:
+      "A century of innovation meets modern technology — UI/UX design, web development, e-commerce, and SEO for a global sports brand.",
     image: portfolioWilson,
     stats: { metric: "500K+", label: "Monthly Users" },
     tags: ["UI/UX", "Web Dev", "E-Commerce", "SEO"],
-    slug: "wilson",
+    slug: "case-study-wilson",
   },
   {
     title: "American Koil",
     category: "Sleep & Mattress Solutions",
-    description: "Premium sleep brand transformed with a compelling digital storefront, immersive product pages, and seamless checkout.",
+    description:
+      "Premium sleep brand transformed with a compelling digital storefront, immersive product pages, and seamless checkout.",
     image: portfolioAmericanKoil,
     stats: { metric: "180%", label: "Revenue Growth" },
     tags: ["UI/UX", "Web Dev", "E-Commerce"],
@@ -37,43 +39,48 @@ const projects = [
   {
     title: "Moher",
     category: "Fashion E-Commerce",
-    description: "Multi-brand fashion retailer's complete digital overhaul — UI/UX, web development, e-commerce, branding, and performance marketing.",
+    description:
+      "Multi-brand fashion retailer's complete digital overhaul — UI/UX, web development, e-commerce, branding, and performance marketing.",
     image: portfolioMoher,
     stats: { metric: "45%", label: "Bounce Rate Drop" },
     tags: ["UI/UX", "E-Commerce", "Branding", "Marketing"],
-    slug: "moher",
+    slug: "case-study-moher",
   },
   {
     title: "InstaRunway",
     category: "Fashion & Lifestyle Marketplace",
-    description: "Luxury fashion and lifestyle marketplace with stunning UI/UX design, web development, and e-commerce integration.",
+    description:
+      "Luxury fashion and lifestyle marketplace with stunning UI/UX design, web development, and e-commerce integration.",
     image: portfolioInstaRunway,
     stats: { metric: "3.2x", label: "Conversion Lift" },
     tags: ["UI/UX", "Web Dev", "E-Commerce"],
-    slug: "instarunway",
+    slug: "case-study-insta-runway",
   },
   {
     title: "Judith Leiber",
     category: "Luxury Fashion & Accessories",
-    description: "Iconic luxury brand's digital presence reimagined with elegant UI/UX, web development, and e-commerce solutions.",
+    description:
+      "Iconic luxury brand's digital presence reimagined with elegant UI/UX, web development, and e-commerce solutions.",
     image: portfolioJudithLeiber,
     stats: { metric: "220%", label: "Online Sales Growth" },
     tags: ["UI/UX", "Web Dev", "E-Commerce"],
-    slug: "judith-leiber",
+    slug: "case-study-judith-leiber",
   },
   {
     title: "Kat Maconie",
     category: "Luxury E-commerce & Retail",
-    description: "Bold luxury footwear brand elevated with striking UI/UX, web development, e-commerce, and SEO strategy.",
+    description:
+      "Bold luxury footwear brand elevated with striking UI/UX, web development, e-commerce, and SEO strategy.",
     image: portfolioKatMaconie,
     stats: { metric: "85%", label: "Organic Traffic Up" },
     tags: ["UI/UX", "Web Dev", "E-Commerce", "SEO"],
-    slug: "kat-maconie",
+    slug: "case-study-kat-maconie",
   },
   {
     title: "Beflare",
     category: "Event Management Platform",
-    description: "Modern wedding photography and event management web platform with elegant UI/UX and seamless web development.",
+    description:
+      "Modern wedding photography and event management web platform with elegant UI/UX and seamless web development.",
     image: portfolioBeflare,
     stats: { metric: "150%", label: "Lead Generation" },
     tags: ["UI/UX", "Web Dev"],
@@ -81,16 +88,18 @@ const projects = [
   {
     title: "Ekasys ERP",
     category: "Retail & Distribution Management",
-    description: "Enterprise retail and distribution management system with comprehensive UI/UX design and app development.",
+    description:
+      "Enterprise retail and distribution management system with comprehensive UI/UX design and app development.",
     image: portfolioEkasysRetail,
     stats: { metric: "40%", label: "Efficiency Gain" },
     tags: ["UI/UX", "App Dev"],
-    slug: "ekasys-erp",
+    slug: "case-study-ekasys",
   },
   {
     title: "Ekasys Real Estate",
     category: "Real Estate Management System",
-    description: "Complete real estate management application with property tracking, tenant management, and financial analytics.",
+    description:
+      "Complete real estate management application with property tracking, tenant management, and financial analytics.",
     image: portfolioEkasysRE,
     stats: { metric: "300+", label: "Properties Managed" },
     tags: ["UI/UX", "App Dev"],
@@ -98,11 +107,12 @@ const projects = [
   {
     title: "Medoc HMS",
     category: "Clinical Chains & Hospitals",
-    description: "Comprehensive hospital management system for clinical chains with patient records, scheduling, and real-time analytics.",
+    description:
+      "Comprehensive hospital management system for clinical chains with patient records, scheduling, and real-time analytics.",
     image: portfolioMedoc,
     stats: { metric: "200+", label: "Hospitals Onboarded" },
     tags: ["UI/UX", "App Dev"],
-    slug: "medoc-hms",
+    slug: "case-study-medoc",
   },
 ];
 
@@ -137,7 +147,9 @@ const CaseStudiesSection = () => {
     };
 
     rafRef.current = requestAnimationFrame(tick);
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const scroll = (direction: "left" | "right") => {
@@ -148,13 +160,18 @@ const CaseStudiesSection = () => {
       left: direction === "left" ? -amount : amount,
       behavior: "smooth",
     });
-    setTimeout(() => { isPausedRef.current = false; }, 800);
+    setTimeout(() => {
+      isPausedRef.current = false;
+    }, 800);
   };
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     isDraggingRef.current = true;
-    dragStart.current = { x: e.pageX, scrollLeft: scrollRef.current.scrollLeft };
+    dragStart.current = {
+      x: e.pageX,
+      scrollLeft: scrollRef.current.scrollLeft,
+    };
     scrollRef.current.style.cursor = "grabbing";
     scrollRef.current.style.userSelect = "none";
   }, []);
@@ -174,12 +191,16 @@ const CaseStudiesSection = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-28 bg-section-dark relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-28 bg-section-dark relative overflow-hidden"
+    >
       {/* Subtle dot texture */}
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -198,9 +219,13 @@ const CaseStudiesSection = () => {
               </p>
               <h2 className="text-4xl md:text-5xl font-bold leading-[1.08] font-display">
                 <span className="text-section-dark-foreground">Work That </span>
-                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Speaks</span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                  Speaks
+                </span>
                 <br />
-                <span className="text-section-dark-foreground/30">For Itself</span>
+                <span className="text-section-dark-foreground/30">
+                  For Itself
+                </span>
               </h2>
             </motion.div>
 
@@ -241,10 +266,18 @@ const CaseStudiesSection = () => {
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
-          onMouseLeave={() => { onMouseUp(); isPausedRef.current = false; }}
-          onMouseEnter={() => isPausedRef.current = true}
+          onMouseLeave={() => {
+            onMouseUp();
+            isPausedRef.current = false;
+          }}
+          onMouseEnter={() => (isPausedRef.current = true)}
           className="flex gap-6 overflow-x-auto scrollbar-hide pl-6 lg:pl-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))] pr-6 pb-4 cursor-grab select-none"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+            touchAction: "pan-y",
+          }}
         >
           {projects.map((project, i) => {
             const cardContent = (
@@ -319,7 +352,10 @@ const CaseStudiesSection = () => {
                 className="group relative flex-shrink-0 w-[85vw] md:w-[550px] lg:w-[600px] rounded-2xl overflow-hidden border border-section-dark-foreground/[0.06] hover:border-primary/20 transition-all duration-500 snap-start pointer-events-auto"
               >
                 {project.slug ? (
-                  <Link href={`/case-study/${project.slug}`} className="block">
+                  <Link
+                    href={`/case-studies/${project.slug}`}
+                    className="block"
+                  >
                     {cardContent}
                   </Link>
                 ) : (
