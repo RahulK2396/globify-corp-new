@@ -2,7 +2,7 @@ import CaseStudyEkasys from "@/_pages_backup/case-studies/CaseStudyEkasys";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Study EKASYS | Globify Corp",
+  title: "Case Study Wilson | Globify Corp",
   description: "",
 };
 

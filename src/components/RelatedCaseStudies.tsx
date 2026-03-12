@@ -14,14 +14,14 @@ import clientSalomon from "@/assets/clients/salomon.png";
 import Image from "next/image";
 
 const allCaseStudies = [
-  { slug: "wilson", title: "Wilson", category: "E-Commerce", image: portfolioWilson, stat: "500K+ Users" },
-  { slug: "salomon", title: "Salomon", category: "E-Commerce", image: clientSalomon, stat: "320% Revenue Growth" },
-  { slug: "moher", title: "Moher", category: "E-Commerce", image: portfolioMoher, stat: "45% Bounce Drop" },
-  { slug: "kat-maconie", title: "Kat Maconie", category: "E-Commerce", image: portfolioKat, stat: "85% Organic Growth" },
-  { slug: "judith-leiber", title: "Judith Leiber", category: "E-Commerce", image: portfolioJudith, stat: "220% Sales Growth" },
-  { slug: "instarunway", title: "InstaRunway", category: "E-Commerce", image: portfolioInstaRunway, stat: "3.2x Conversion" },
+  { slug: "case-study-wilson", title: "Wilson", category: "E-Commerce", image: portfolioWilson, stat: "500K+ Users" },
+  { slug: "case-study-salomon", title: "Salomon", category: "E-Commerce", image: clientSalomon, stat: "320% Revenue Growth" },
+  { slug: "case-study-moher", title: "Moher", category: "E-Commerce", image: portfolioMoher, stat: "45% Bounce Drop" },
+  { slug: "case-study-kat-maconie", title: "Kat Maconie", category: "E-Commerce", image: portfolioKat, stat: "85% Organic Growth" },
+  { slug: "case-study-judith-leiber", title: "Judith Leiber", category: "E-Commerce", image: portfolioJudith, stat: "220% Sales Growth" },
+  { slug: "case-study-insta-runway", title: "InstaRunway", category: "E-Commerce", image: portfolioInstaRunway, stat: "3.2x Conversion" },
   { slug: "medoc-hms", title: "MEDOC HMS", category: "Healthcare", image: portfolioMedoc, stat: "2,000+ Clinics" },
-  { slug: "ekasys-erp", title: "EKASYS ERP", category: "ERP", image: portfolioErp, stat: "200+ Businesses" },
+  { slug: "case-study-ekasys-realestate", title: "EKASYS ERP", category: "ERP", image: portfolioErp, stat: "200+ Businesses" },
 ];
 
 interface RelatedCaseStudiesProps {
@@ -39,7 +39,7 @@ const RelatedCaseStudies = ({ current }: RelatedCaseStudiesProps) => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 font-display">Related Case Studies</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {related.map((study, i) => (
-              <Link key={study.slug} href={`/case-study/${study.slug}`} className="block group">
+              <Link key={study.slug} href={`/case-studies/${study.slug}`} className="block group">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
