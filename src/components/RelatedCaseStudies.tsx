@@ -10,12 +10,12 @@ import portfolioMedoc from "@/assets/portfolio-medoc.jpeg";
 import portfolioErp from "@/assets/portfolio-erp.jpg";
 import portfolioJudith from "@/assets/portfolio-judith-leiber.jpeg";
 import portfolioInstaRunway from "@/assets/portfolio-instarunway.jpeg";
-import clientSalomon from "@/assets/clients/salomon.png";
+import portfolioSalomon from "@/assets/portfolio-salomon.jpg";
 import Image from "next/image";
 
 const allCaseStudies = [
   { slug: "case-study-wilson", title: "Wilson", category: "E-Commerce", image: portfolioWilson, stat: "500K+ Users" },
-  { slug: "case-study-salomon", title: "Salomon", category: "E-Commerce", image: clientSalomon, stat: "320% Revenue Growth" },
+  { slug: "case-study-salomon", title: "Salomon", category: "E-Commerce", image: portfolioSalomon, stat: "320% Revenue Growth" },
   { slug: "case-study-moher", title: "Moher", category: "E-Commerce", image: portfolioMoher, stat: "45% Bounce Drop" },
   { slug: "case-study-kat-maconie", title: "Kat Maconie", category: "E-Commerce", image: portfolioKat, stat: "85% Organic Growth" },
   { slug: "case-study-judith-leiber", title: "Judith Leiber", category: "E-Commerce", image: portfolioJudith, stat: "220% Sales Growth" },

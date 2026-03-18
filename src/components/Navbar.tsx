@@ -243,12 +243,12 @@ const Navbar = () => {
                           <p className="text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">ERP Solutions</p>
                           <p className="text-sm text-muted-foreground/70 mt-1 leading-relaxed">Custom enterprise resource planning</p>
                         </Link>
-                        <Link href="/hire-developers" className="block mb-6 group">
+                        {/* <Link href="/hire-developers" className="block mb-6 group">
                           <p className="text-[16px] font-semibold text-primary group-hover:text-primary transition-colors leading-snug flex items-center gap-2">
-                            <Users className="w-4 h-4" /> Hire Developers
+                            <Users className="w-4 h-4" /> Hire Developersss
                           </p>
                           <p className="text-sm text-muted-foreground/70 mt-1 leading-relaxed">Dedicated developers from India</p>
-                        </Link>
+                        </Link> */}
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground/50 mb-5">Growth</p>
