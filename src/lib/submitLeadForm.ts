@@ -3,26 +3,34 @@ interface LeadFormData {
   fields: Record<string, string>;
 }
 
-export function extractFormFields(form: HTMLFormElement): Record<string, string> {
+export function extractFormFields(
+  form: HTMLFormElement,
+): Record<string, string> {
   const fields: Record<string, string> = {};
-  const inputs = form.querySelectorAll('input, select, textarea');
+  const inputs = form.querySelectorAll("input, select, textarea");
   inputs.forEach((el) => {
     const htmlEl = el as HTMLElement;
-    const id = htmlEl.getAttribute('id');
+    const id = htmlEl.getAttribute("id");
     // Try to find a label element for this input
     const labelEl = id ? form.querySelector(`label[for="${id}"]`) : null;
-    const labelText = labelEl?.textContent?.replace(/\s*\*\s*$/, '').trim();
+    const labelText = labelEl?.textContent?.replace(/\s*\*\s*$/, "").trim();
     // Try label text, then placeholder, then id
-    const placeholder = htmlEl.getAttribute('placeholder')?.replace(/\s*\*\s*$/, '').trim();
+    const placeholder = htmlEl
+      .getAttribute("placeholder")
+      ?.replace(/\s*\*\s*$/, "")
+      .trim();
     const key = labelText || placeholder || id || htmlEl.tagName;
     fields[key] = (el as HTMLInputElement).value;
   });
   return fields;
 }
 
-export async function submitLeadForm({ formName, fields }: LeadFormData): Promise<boolean> {
+export async function submitLeadForm({
+  formName,
+  fields,
+}: LeadFormData): Promise<boolean> {
   try {
-    const res = await fetch("/api/send-lead", {
+    const response = await fetch("/api/send-lead-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,8 +38,13 @@ export async function submitLeadForm({ formName, fields }: LeadFormData): Promis
       body: JSON.stringify({ formName, fields }),
     });
 
-    const data = await res.json();
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Lead form submission error:", errorData);
+      return false;
+    }
 
+    const data = await response.json();
     return data?.success === true;
   } catch (err) {
     console.error("Lead form submission error:", err);
